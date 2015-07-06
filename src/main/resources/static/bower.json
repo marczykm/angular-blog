@@ -1,0 +1,20 @@
+{
+  "name": "angular-shop",
+  "version": "0.0.0",
+  "authors": [
+    "(Marcin Marczyk (m.l.marczyk@gmail.com))"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "www.marczyk.ovh",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.1"
+  }
+}
