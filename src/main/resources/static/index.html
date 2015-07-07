@@ -35,12 +35,25 @@
                         <li ng-class="{active: $location.$$path == '/'}"><a ng-href="#/">Main page</a></li>
                         <li ng-class="{active: $location.$$path == '/test'}"><a ng-href="#/test">test</a></li>
                     </ul>
+
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/category/cars">Cars</a></li>
+                                <li><a href="#/category/electronics">Electronics</a></li>
+                                <li><a href="#/category/computers">Computers</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search">
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
+
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
