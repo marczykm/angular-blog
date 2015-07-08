@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface PostRepository extends Repository<Post, Long>{
     public Post findPostByTitle(String title);
-    public List<Post> findAllPosts();
+    public List<Post> findAll();
 }
