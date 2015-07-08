@@ -1,0 +1,2 @@
+insert into post (active, author, content, creation_date, title) values (1, 'Marcin Marczyk', 'Lorem ipsum', NOW, 'Test post');
+insert into post (active, author, content, creation_date, title) values (1, 'Marcin Marczyk', 'Lorem ipsum2', NOW, 'Test post 2');

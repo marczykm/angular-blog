@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Created by MMARCZYK on 2015-07-08.
@@ -26,15 +27,27 @@ public class Post {
     private String author;
 
     @NotNull
-    private DateTime creationDate;
+    private Date creationDate;
 
     private boolean active;
 
-    public Post(String content, String author, boolean active) {
+    public Post() {
+    }
+
+    public Post(String title, String content, String author, boolean active) {
+        this.title = title;
         this.content = content;
         this.author = author;
         this.active = active;
-        this.creationDate = DateTime.now();
+        this.creationDate = new Date();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -53,11 +66,11 @@ public class Post {
         this.author = author;
     }
 
-    public DateTime getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(DateTime creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 

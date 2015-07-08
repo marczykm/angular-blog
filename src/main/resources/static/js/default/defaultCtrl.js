@@ -1,6 +1,15 @@
-app.controller('DefaultCtrl', function($scope, $routeParams){
+app.controller('DefaultCtrl', function($scope, $routeParams, $http){
     $scope.name = "DefaultCtrl";
     $scope.params = $routeParams;
+    $scope.posts;
 
-    $scope.test = "test";
+    $http.get("http://localhost:9999/rest/posts").
+        success(function(data, status, headers, config){
+            $scope.posts = data;
+            console.log(data[0].creationDate);
+        }).
+        error(function(data, status, headers, config){
+
+        });
+
 });
