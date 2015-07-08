@@ -1,10 +1,10 @@
 package pl.marczykm.domain;
 
-import org.joda.time.DateTime;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -29,16 +29,19 @@ public class Post {
     @NotNull
     private Date creationDate;
 
+    private String photo;
+
     private boolean active;
 
     public Post() {
     }
 
-    public Post(String title, String content, String author, boolean active) {
+    public Post(String title, String content, String author, boolean active, String photo) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.active = active;
+        this.photo = photo;
         this.creationDate = new Date();
     }
 
@@ -82,36 +85,11 @@ public class Post {
         this.active = active;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Post post = (Post) o;
-
-        if (active != post.active) return false;
-        if (!content.equals(post.content)) return false;
-        if (!author.equals(post.author)) return false;
-        return creationDate.equals(post.creationDate);
-
+    public String getPhoto() {
+        return photo;
     }
 
-    @Override
-    public int hashCode() {
-        int result = content.hashCode();
-        result = 31 * result + author.hashCode();
-        result = 31 * result + creationDate.hashCode();
-        result = 31 * result + (active ? 1 : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "content='" + content + '\'' +
-                ", author='" + author + '\'' +
-                ", creationDate=" + creationDate +
-                ", active=" + active +
-                '}';
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }
