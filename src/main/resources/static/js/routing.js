@@ -6,10 +6,10 @@ app.config( function($routeProvider, $locationProvider){
             templateUrl: baseUrl+'/default/default.html',
             controller: 'DefaultCtrl'
         })
-        .when('/test',
+        .when('/post/:title',
         {
-            templateUrl: baseUrl+'/test/test.html',
-            controller: 'TestCtrl'
+            templateUrl: baseUrl+'/post/blog_post.html',
+            controller: 'BlogPostCtrl'
         })
         .otherwise({
             redirectTo: '/'

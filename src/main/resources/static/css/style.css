@@ -2,8 +2,23 @@
     display: none !important;
 }
 
+body, html {
+    background: url('../img/background.jpg') center / cover;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.mini-container {
+    margin-top: 200px;
+}
+
 .demo-card-wide.mdl-card {
-    width: 512px;
+    width: 800px;
+      margin-bottom: 30px;
 }
 .demo-card-wide > .mdl-card__title {
     color: #fff;
@@ -11,4 +26,16 @@
 }
 .demo-card-wide > .mdl-card__menu {
     color: #fff;
+}
+
+.post_author{
+
+}
+
+.post_date{
+
+}
+
+.post_more{
+    float: left;
 }

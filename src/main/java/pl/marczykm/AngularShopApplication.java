@@ -8,5 +8,11 @@ public class AngularShopApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AngularShopApplication.class, args);
+        String a = new String();
+        if (a.isEmpty()) {
+
+        }
+        System.out.println();
+        System.out.println();
     }
 }
