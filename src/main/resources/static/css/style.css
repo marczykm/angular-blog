@@ -3,7 +3,7 @@
 }
 
 body, html {
-    background: url('../img/background.jpg') center / cover;
+    background: url('../img/11863002835_8e8d2510d4_o.jpg') center / cover;
     background-attachment: fixed;
 }
 
@@ -16,24 +16,31 @@ body, html {
     margin-top: 200px;
 }
 
-.demo-card-wide.mdl-card {
+.mdl-card {
     width: 800px;
-      margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 .demo-card-wide > .mdl-card__title {
     color: #fff;
     height: 176px;
 }
+
+.blog-post-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 400px;
+}
 .demo-card-wide > .mdl-card__menu {
     color: #fff;
 }
 
-.post_author{
-
+.mdl-card__title{
+    position: relative;
 }
 
-.post_date{
-
+.back {
+    position: absolute;
+    right: 7px;
+    bottom: -27px;
 }
 
 .post_more{

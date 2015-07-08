@@ -15,8 +15,8 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    public Post findPostByTitle(String title){
-        return postRepository.findPostByTitle(title);
+    public Post findPostById(Long id){
+        return postRepository.findPostById(id);
     }
 
     public List<Post> findAllPosts(){

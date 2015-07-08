@@ -6,7 +6,7 @@ app.config( function($routeProvider, $locationProvider){
             templateUrl: baseUrl+'/default/default.html',
             controller: 'DefaultCtrl'
         })
-        .when('/post/:title',
+        .when('/post/:id',
         {
             templateUrl: baseUrl+'/post/blog_post.html',
             controller: 'BlogPostCtrl'
