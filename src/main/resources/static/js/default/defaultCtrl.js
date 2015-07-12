@@ -3,7 +3,7 @@ app.controller('DefaultCtrl', function($scope, $routeParams, $http){
     $scope.params = $routeParams;
     $scope.posts;
 
-    $http.get("http://marczyk.ovh:9999/rest/posts").
+    $http.get("http://marczyk.ovh/rest/posts").
         success(function(data, status, headers, config){
             $scope.posts = data;
         }).
