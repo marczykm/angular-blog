@@ -4,7 +4,7 @@ app.controller('BlogPostCtrl', function($scope, $routeParams, $http){
 
     console.log($scope.params.id);
 
-    $http.get("http://marczyk.ovh/rest/post?id=" + $routeParams.id).
+    $http.get("http://marczyk.ovh/angular-blog-0.0.1/rest/post?id=" + $routeParams.id).
             success(function(data, status, headers, config){
                 $scope.post = data;
                 console.log($scope.post);
