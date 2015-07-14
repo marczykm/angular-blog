@@ -1,0 +1,5 @@
+<div class="mini-container">
+    <ul ng-repeat="p in posts">
+        <li>{{p.title}} - {{p.creationDate | date : 'dd.MM.yyyy HH:mm'}} - {{p.author}} <a href="#/admin/post/{{p.id}}">Edit</a></li>
+    </ul>
+</div>

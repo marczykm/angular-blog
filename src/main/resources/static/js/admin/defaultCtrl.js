@@ -1,5 +1,5 @@
-app.controller('DefaultCtrl', function($scope, $routeParams, $http){
-    $scope.name = "DefaultCtrl";
+app.controller('AdminDefaultCtrl', function($scope, $routeParams, $http){
+    $scope.name = "AdminDefaultCtrl";
     $scope.params = $routeParams;
     $scope.posts;
 
