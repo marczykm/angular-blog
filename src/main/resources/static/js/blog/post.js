@@ -1,8 +1,6 @@
-app.controller('BlogPostCtrl', function($scope, $routeParams, $http){
-    $scope.name = "BlogPostCtrl";
-    $scope.params = $routeParams;
+app.controller('BlogPostCtrl', function($scope, $stateParams, $http){
 
-    $http.get("/rest/post?id=" + $routeParams.id).
+    $http.get("/rest/post?id=" + $stateParams.id).
             success(function(data, status, headers, config){
                 $scope.post = data;
             }).

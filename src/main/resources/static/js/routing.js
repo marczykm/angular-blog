@@ -1,27 +1,27 @@
-app.config( function($routeProvider, $locationProvider){
-    var baseUrl = 'js';
-    $routeProvider
-        .when('/',
+app.config( function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state('blogMain', {
+        url: '/',
+        views:
         {
-            templateUrl: baseUrl+'/default/default.html',
-            controller: 'DefaultCtrl'
+            '': { templateUrl: 'js/blog/template.html' },
+            'main@blogMain': {
+                templateUrl: 'js/blog/main.html',
+                controller: 'BlogMainCtrl'
+            }
+        }
         })
-        .when('/post/:id',
+        .state('blogPost', {
+        url: '/post/:id',
+        views:
         {
-            templateUrl: baseUrl+'/post/blog_post.html',
-            controller: 'BlogPostCtrl'
-        })
-        .when('/admin',
-        {
-            templateUrl: baseUrl+'/admin/default.html',
-            controller: 'AdminDefaultCtrl'
-        })
-        .when('/admin/post/:id',
-        {
-            templateUrl: baseUrl + '/admin/editPost.html',
-            controller: 'AdminEditPostCtrl'
-        })
-        .otherwise({
-            redirectTo: '/'
-        })
+            '': { templateUrl: 'js/blog/template.html' },
+            'main@blogPost': {
+                templateUrl:'js/blog/post.html',
+                controller: 'BlogPostCtrl'
+            }
+        }
+        });
     });

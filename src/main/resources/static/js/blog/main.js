@@ -1,6 +1,4 @@
-app.controller('DefaultCtrl', function($scope, $routeParams, $http){
-    $scope.name = "DefaultCtrl";
-    $scope.params = $routeParams;
+app.controller('BlogMainCtrl', function($scope, $http){
     $scope.posts;
 
     $http.get("/rest/posts").
