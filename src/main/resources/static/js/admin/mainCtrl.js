@@ -1,6 +1,4 @@
-app.controller('AdminDefaultCtrl', function($scope, $routeParams, $http){
-    $scope.name = "AdminDefaultCtrl";
-    $scope.params = $routeParams;
+app.controller('AdminDefaultCtrl', function($scope, $http){
     $scope.posts;
 
     $http.get("/rest/posts").
