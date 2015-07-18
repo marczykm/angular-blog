@@ -10,4 +10,5 @@ import java.util.List;
 public interface PostRepository extends Repository<Post, Long>{
     public Post findPostById(Long id);
     public List<Post> findAll();
+    public Post save(Post post);
 }

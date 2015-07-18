@@ -22,4 +22,8 @@ public class PostService {
     public List<Post> findAllPosts(){
         return postRepository.findAll();
     }
+
+    public Post savePost(Post post){
+        return postRepository.save(post);
+    }
 }

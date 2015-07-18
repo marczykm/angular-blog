@@ -1,7 +1,7 @@
 <div class="mini-container">
     <form>
-        <input type="text" value="{{post.title}}"/>
+        <input type="text" ng-model="post.title"/>
         <textarea>{{post.content}}</textarea>
-        <input type="button" value="Save" />
+        <input type="button" value="Save" ng-click="savePost()" />
     </form>
 </div>

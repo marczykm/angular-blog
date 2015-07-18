@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
-<body>
-    <div class="admin-container" ng-cloak class="ng-cloak">
-        <div ui-view="main"></div>
+<div id="admin-container">
+    <div  ng-cloak class="ng-cloak">
+        <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--overlay-drawer-button">
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Administration panel</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#/admin/posts">Manage posts</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content" ui-view="main"></div>
+            </main>
+        </div>
     </div>
-</body>
-</html>
+</div>
+<script src="js/script.js"></script>

@@ -1,9 +1,7 @@
 package pl.marczykm.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.marczykm.domain.Post;
 import pl.marczykm.service.PostService;
 
@@ -27,5 +25,10 @@ public class BlogController {
     @RequestMapping("/post")
     public Post getPostBy(@RequestParam Long id){
         return postService.findPostById(id);
+    }
+
+    @RequestMapping(value = "/post/save", method = RequestMethod.POST)
+    public Post savePost(@RequestBody Post post) {
+        return postService.savePost(post);
     }
 }

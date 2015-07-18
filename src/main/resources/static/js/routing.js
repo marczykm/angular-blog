@@ -35,4 +35,26 @@ app.config( function($stateProvider, $urlRouterProvider){
                 }
             }
         })
+        .state('adminPosts', {
+            url: '/admin/posts',
+            views:
+            {
+                '': { templateUrl: 'js/admin/template.html' },
+                'main@adminPosts': {
+                    templateUrl:'js/admin/posts.html',
+                    controller: 'AdminPostsCtrl'
+                }
+            }
+        })
+        .state('adminPostEdit', {
+            url: '/admin/post/:id',
+            views:
+            {
+                '': { templateUrl: 'js/admin/template.html' },
+                'main@adminPostEdit': {
+                    templateUrl:'js/admin/editPost.html',
+                    controller: 'AdminEditPostCtrl'
+                }
+            }
+        })
     });
