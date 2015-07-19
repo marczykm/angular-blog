@@ -31,4 +31,9 @@ public class BlogController {
     public Post savePost(@RequestBody Post post) {
         return postService.savePost(post);
     }
+
+    @RequestMapping(value = "/post/delete")
+    public void deletePost(@RequestParam Long id){
+        postService.deletePost(id);
+    }
 }

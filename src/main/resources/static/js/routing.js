@@ -47,7 +47,7 @@ app.config( function($stateProvider, $urlRouterProvider){
             }
         })
         .state('adminPostEdit', {
-            url: '/admin/post/:id',
+            url: '/admin/post/edit/:id',
             views:
             {
                 '': { templateUrl: 'js/admin/template.html' },

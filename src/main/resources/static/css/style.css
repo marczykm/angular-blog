@@ -21,7 +21,7 @@ body, html {
 }
 
 .mini-container {
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .mdl-card {
@@ -56,21 +56,28 @@ body, html {
 }
 
 .admin-container {
-  min-height: 200px;
+    min-height: 200px;
 }
 
 .demo-card-event.mdl-card {
-    width: 100%;
-      min-height: 400px;
-      background: #3E4EB8;
-  }
-  .demo-card-event > .mdl-card__actions {
+    width: 98%;
+    min-height: 400px;
+    background: #3E4EB8;
+}
+.demo-card-event > .mdl-card__actions {
     border-color: rgba(255, 255, 255, 0.2);
-  }
-  .demo-card-event > .mdl-card__title,
+}
+.demo-card-event > .mdl-card__title,
   .demo-card-event > .mdl-card__actions > .mdl-button {
     color: #fff;
-  }
-  .mdl-layout__content{
+}
+.mdl-layout__content{
     min-height:500px;
-  }
+}
+.mdl-layout--fixed-drawer>.mdl-layout__content {
+    margin-left: 260px;
+}
+
+.admin-background{
+    background: #EFEFEF;
+}
