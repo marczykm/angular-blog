@@ -57,4 +57,15 @@ app.config( function($stateProvider, $urlRouterProvider){
                 }
             }
         })
+        .state('adminPostCreate', {
+            url: '/admin/post/create',
+            views:
+            {
+                '': { templateUrl: 'js/admin/template.html' },
+                'main@adminPostCreate': {
+                    templateUrl:'js/admin/createPost.html',
+                    controller: 'AdminCreatePostCtrl'
+                }
+            }
+        })
     });

@@ -32,8 +32,20 @@ public class BlogController {
         return postService.savePost(post);
     }
 
-    @RequestMapping(value = "/post/delete")
+    @RequestMapping("/post/delete")
     public void deletePost(@RequestParam Long id){
         postService.deletePost(id);
+    }
+
+    @RequestMapping(value = "/post/create", method = RequestMethod.POST)
+    public void createPost(@RequestBody Post post) {
+        Post temp = new Post(
+            post.getTitle(),//
+            post.getContent(),//
+            post.getAuthor() == null ? "" : post.getAuthor(),//
+            post.isActive(),//
+            post.getPhoto()//
+        );
+        postService.savePost(temp);
     }
 }

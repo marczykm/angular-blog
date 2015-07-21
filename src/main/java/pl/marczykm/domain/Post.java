@@ -34,6 +34,7 @@ public class Post {
     private boolean active;
 
     public Post() {
+        this.creationDate = new Date();
     }
 
     public Post(String title, String content, String author, boolean active, String photo) {
