@@ -7,7 +7,7 @@ body, html {
 }
 
 #blog-container{
-    background: url('../img/background.jpg') center / cover;
+    background: url('../img/background.jpg') center;
     background-attachment: fixed;
 }
 
@@ -80,4 +80,8 @@ body, html {
 
 .admin-background{
     background: #EFEFEF;
+}
+
+.mdl-mini-footer {
+    background: #2c6a6b;
 }
