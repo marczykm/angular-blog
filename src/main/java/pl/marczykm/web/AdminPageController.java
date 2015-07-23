@@ -1,6 +1,7 @@
 package pl.marczykm.web;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminPageController {
+
+    Logger logger = Logger.getLogger(this.getClass());
 
     @Autowired
     PostService postService;
@@ -74,11 +77,14 @@ public class AdminPageController {
                 stream.close();
 
                 uploadStatus = true;
+                logger.info("Upload successful: " + fileU.getAbsolutePath());
             } catch (Exception e) {
                 uploadStatus = false;
+                logger.info("Upload failed: " + fileU.getAbsolutePath());
             }
         } else {
             uploadStatus = false;
+            logger.info("Upload failed: " + fileU.getAbsolutePath());
         }
 
 
