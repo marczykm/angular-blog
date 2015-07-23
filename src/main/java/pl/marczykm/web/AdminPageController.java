@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminPageController {
 
-    @RequestMapping("/")
+    @RequestMapping
     public String adminMainPage(){
         return "admin";
     }
