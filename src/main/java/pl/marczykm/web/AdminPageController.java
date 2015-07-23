@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by marcin on 21.07.15.
@@ -38,8 +39,19 @@ public class AdminPageController {
     }
 
     @RequestMapping("/posts")
-    public String adminManagePostsPage(){
+    public String adminManagePostsPage(Model model){
+        List<Post> posts = postService.findAllPosts();
+        model.addAttribute("posts", posts);
         return "manage";
+    }
+
+    @RequestMapping("/delete")
+    public String adminDeletePostPage(@RequestParam Long id, Model model){
+        Post post = postService.findPostById(id);
+        model.addAttribute("post", post);
+        postService.deletePost(id);
+
+        return "deleteStatus";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin panel</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/dist/css/bootstrap-theme.min.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/admin.css}"/>
+</head>
+<body>
+<nav th:replace="fragments/header :: menu">
+
+</nav>
+<div class="container">
+    <div class="alert alert-success" role="alert">Post deleted successfully.</div>
+    <a th:href="@{/admin/posts}">Manage posts</a>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
