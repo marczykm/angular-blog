@@ -6,15 +6,13 @@ package pl.marczykm.domain;
 public class PostFormWrapper {
     private String title;
     private String content;
-    private String photo;
 
     public PostFormWrapper() {
     }
 
-    public PostFormWrapper(String title, String content, String photo) {
+    public PostFormWrapper(String title, String content) {
         this.title = title;
         this.content = content;
-        this.photo = photo;
     }
 
     public String getTitle() {
@@ -33,11 +31,4 @@ public class PostFormWrapper {
         this.content = content;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
 }

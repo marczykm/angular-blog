@@ -17,10 +17,10 @@
 
     <div class="panel panel-success">
         <div class="panel-heading">
-            <h3 class="panel-title">Success</h3>
+            <h3 class="panel-title" th:text="${messageTitle}"/>
         </div>
         <div class="panel-body">
-            <p>Post successfully saved</p>
+            <p th:text="${messageContent}"/>
         </div>
     </div>
 
