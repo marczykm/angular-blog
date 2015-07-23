@@ -24,48 +24,4 @@ app.config( function($stateProvider, $urlRouterProvider){
                 }
             }
         })
-        .state('adminMain', {
-            url: '/admin',
-            views:
-            {
-                '': { templateUrl: 'js/admin/template.html' },
-                'main@adminMain': {
-                    templateUrl:'js/admin/main.html',
-                    controller: 'AdminDefaultCtrl'
-                }
-            }
-        })
-        .state('adminPosts', {
-            url: '/admin/posts',
-            views:
-            {
-                '': { templateUrl: 'js/admin/template.html' },
-                'main@adminPosts': {
-                    templateUrl:'js/admin/posts.html',
-                    controller: 'AdminPostsCtrl'
-                }
-            }
-        })
-        .state('adminPostEdit', {
-            url: '/admin/post/edit/:id',
-            views:
-            {
-                '': { templateUrl: 'js/admin/template.html' },
-                'main@adminPostEdit': {
-                    templateUrl:'js/admin/editPost.html',
-                    controller: 'AdminEditPostCtrl'
-                }
-            }
-        })
-        .state('adminPostCreate', {
-            url: '/admin/post/create',
-            views:
-            {
-                '': { templateUrl: 'js/admin/template.html' },
-                'main@adminPostCreate': {
-                    templateUrl:'js/admin/createPost.html',
-                    controller: 'AdminCreatePostCtrl'
-                }
-            }
-        })
     });
