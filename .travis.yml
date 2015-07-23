@@ -3,6 +3,3 @@ jdk:
   - oraclejdk8
 before_script:
   - mysql -e 'create database blog;'
-  - mysql -e 'use blog;'
-  - mysql -e 'drop table if exists post;'
-  - mysql -e 'create table post (id bigint not null auto_increment, active bit not null, author varchar(255) not null, content text not null, creation_date datetime not null, photo varchar(255), title varchar(255) not null, primary key (id));'
