@@ -12,7 +12,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/rest")
-public class BlogController {
+public class RestfulController {
 
     @Autowired
     private PostService postService;
