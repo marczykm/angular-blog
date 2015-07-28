@@ -66,7 +66,7 @@ public class AdminPageController {
         boolean uploadStatus = false;
         String name = DigestUtils.sha1Hex(new Date().toString()) + "." + extractExtension(file.getOriginalFilename());
 
-        File fileU = new File("../webapps/ROOT/WEB-INF/classes/public/uploads/" + name);
+        File fileU = new File("/root/apache-tomcat-8.0.24/angular-blog-0.0.2/ROOT/WEB-INF/classes/public/uploads/" + name);
 
         if (!file.isEmpty()) {
             try {
