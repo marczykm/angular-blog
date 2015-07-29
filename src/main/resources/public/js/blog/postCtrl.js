@@ -1,10 +1,8 @@
-app.controller('BlogPostCtrl', function($scope, $stateParams, $http){
+app.controller('BlogPostCtrl', function($scope, $stateParams, $http, $sce){
 
     $http.get("/rest/post?id=" + $stateParams.id).
             success(function(data, status, headers, config){
                 $scope.post = data;
-            }).
-            error(function(data, status, headers, config){
-
+                $scope.post.content = $sce.trustAsHtml(data.content);
             });
 });

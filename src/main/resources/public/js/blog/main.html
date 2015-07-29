@@ -4,7 +4,7 @@
             <h2 class="mdl-card__title-text">{{p.title}}</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            <p>{{p.content}}</p>
+            <p class="content" ng-bind-html="p.content"></p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <a href="#/post/{{p.id}}" class="post_more mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect">

@@ -14,8 +14,6 @@ import pl.marczykm.service.PostService;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +24,10 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminPageController {
 
-    Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = Logger.getLogger(this.getClass());
+
+//    private String uploadsPath = "/root/apache-tomcat-8.0.24/angular-blog-0.0.1/ROOT/WEB-INF/classes/public/uploads/";
+    private String uploadsPath = "C:\\apache-tomcat-8.0.24\\webapps\\ROOT\\WEB-INF\\classes\\public\\uploads\\";
 
     @Autowired
     PostService postService;
@@ -63,10 +64,9 @@ public class AdminPageController {
             @RequestParam("background-image") MultipartFile file,
             Model model) {
 
-        boolean uploadStatus = false;
         String name = DigestUtils.sha1Hex(new Date().toString()) + "." + extractExtension(file.getOriginalFilename());
 
-        File fileU = new File("/root/apache-tomcat-8.0.24/angular-blog-0.0.1/ROOT/WEB-INF/classes/public/uploads/" + name);
+        File fileU = new File(uploadsPath + name);
 
         if (!file.isEmpty()) {
             try {
@@ -76,35 +76,22 @@ public class AdminPageController {
                 stream.write(bytes);
                 stream.close();
 
-                uploadStatus = true;
                 logger.info("Upload successful: " + fileU.getAbsolutePath());
             } catch (Exception e) {
-                uploadStatus = false;
                 logger.info("Upload failed: " + fileU.getAbsolutePath());
             }
-        } else {
-            uploadStatus = false;
-            logger.info("Upload failed: " + fileU.getAbsolutePath());
         }
 
+        Post post = new Post();
+        post.setTitle(postFormWrapper.getTitle());
+        post.setContent(postFormWrapper.getContent());
+        post.setAuthor("");
+        post.setActive(true);
+        post.setPhoto(name);
 
-        if (uploadStatus) {
-            Post post = new Post();
-            post.setTitle(postFormWrapper.getTitle());
-            post.setContent(postFormWrapper.getContent());
-            post.setAuthor("");
-            post.setActive(true);
-            post.setPhoto(name);
-
-            postService.savePost(post);
-            model.addAttribute("messageTitle", "Success");
-            model.addAttribute("messageContent", "Post created successfully.");
-        }
-
-        if (!uploadStatus){
-            model.addAttribute("messageTitle", "Failed");
-            model.addAttribute("messageContent", "Failed to create post.");
-        }
+        postService.savePost(post);
+        model.addAttribute("messageTitle", "Success");
+        model.addAttribute("messageContent", "Post created successfully.");
 
         return "savePostStatus";
     }

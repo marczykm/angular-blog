@@ -4,6 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Admin panel</title>
 
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/dist/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/dist/css/bootstrap-theme.min.css}"/>
 
@@ -27,12 +29,20 @@
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea class="form-control" id="content" name="content" placeholder="Content"></textarea>
+                    <div th:replace="fragments/wysiwyg :: editor"></div>
+                    <textarea class="dummy-content form-control" id="content" name="content" placeholder="Content"></textarea>
                 </div>
+
+
+
+
+
                 <div class="form-group">
                     <label for="background-image">Background image</label>
                     <input type="file" class="form-control" id="background-image" name="background-image" placeholder="Background image"/>
                 </div>
+
+
                 <button type="submit" class="btn btn-success">Create</button>
             </form>
         </div>
@@ -41,5 +51,10 @@
 </div>
 
 <div th:replace="fragments/footer :: footer"></div>
+
+<script src="/js/jquery.hotkeys.js"></script>
+<script src="/js/bootstrap-wysiwyg.js"></script>
+<script src="/js/admin/create.js"></script>
+
 </body>
 </html>
