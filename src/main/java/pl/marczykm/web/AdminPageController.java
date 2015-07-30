@@ -1,6 +1,7 @@
 package pl.marczykm.web;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,8 @@ public class AdminPageController {
 
     private Logger logger = Logger.getLogger(this.getClass());
 
-//    private String uploadsPath = "/root/apache-tomcat-8.0.24/angular-blog-0.0.1/ROOT/WEB-INF/classes/public/uploads/";
-    private String uploadsPath = "C:\\apache-tomcat-8.0.24\\webapps\\ROOT\\WEB-INF\\classes\\public\\uploads\\";
+    private String uploadsPath = "/root/apache-tomcat-8.0.24/angular-blog-0.0.1/ROOT/WEB-INF/classes/public/uploads/";
+//    private String uploadsPath = "C:\\apache-tomcat-8.0.24\\webapps\\ROOT\\WEB-INF\\classes\\public\\uploads\\";
 
     @Autowired
     PostService postService;
