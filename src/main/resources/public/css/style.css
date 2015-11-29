@@ -6,8 +6,13 @@ body, html {
 
 }
 
+a {
+    text-decoration: none;
+    color: #262626;
+}
+
 #blog-container{
-    background: url('../img/background.jpg') center;
+    background: url('../img/symphony-1.png') center;
     background-attachment: fixed;
 }
 
@@ -30,31 +35,27 @@ body, html {
 }
 
 .mdl-card__title {
-    background: url('/img/post_background.jpg');
+    color: #262626;
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    text-align: center;
 }
 
-.mdl-card__title-text{
-    font-family: 'Courgette', cursive;
-    color: purple;
+.mdl-card__title > h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }
+
+.post_title {
+    font-size: 30px;
+    position: relative;
+}
+
 .post_date {
-    font-family: 'Courgette', cursive;
-}
-.demo-card-wide > .mdl-card__title {
-    color: #fff;
-    height: 176px;
 }
 
-.blog-post-card-wide > .mdl-card__title {
-    color: #fff;
-    height: 400px;
-}
 .demo-card-wide > .mdl-card__menu {
     color: #fff;
-}
-
-.mdl-card__title{
-    position: relative;
 }
 
 .back {
