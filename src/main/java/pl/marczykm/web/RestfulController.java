@@ -41,7 +41,7 @@ public class RestfulController {
     public void createPost(@RequestBody Post post) {
         Post temp = new Post(
             post.getTitle(),//
-            post.getContent(),//
+            post.getContent().getBytes(),//
             post.getAuthor() == null ? "" : post.getAuthor(),//
             post.isActive(),//
             post.getPhoto()//

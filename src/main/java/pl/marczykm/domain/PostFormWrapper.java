@@ -5,12 +5,12 @@ package pl.marczykm.domain;
  */
 public class PostFormWrapper {
     private String title;
-    private String content;
+    private byte[] content;
 
     public PostFormWrapper() {
     }
 
-    public PostFormWrapper(String title, String content) {
+    public PostFormWrapper(String title, byte[] content) {
         this.title = title;
         this.content = content;
     }
@@ -23,11 +23,11 @@ public class PostFormWrapper {
         this.title = title;
     }
 
-    public String getContent() {
+    public byte[] getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(byte[] content) {
         this.content = content;
     }
 

@@ -1,0 +1,30 @@
+server:
+  port: 80
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:hsqldb:file:/root/data/data
+    username: sa
+security:
+  user:
+    name: admin
+    password: secret-password
+---
+spring:
+  profiles: debug
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  datasource:
+    url: jdbc:hsqldb:file:C:/data/data
+server:
+  port: 8080
+security:
+  user:
+    password: 0000

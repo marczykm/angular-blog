@@ -10,11 +10,11 @@ public class AngularBlogApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(AngularBlogApplication.class).properties("spring.config.name:my-blog");
+        return application.sources(AngularBlogApplication.class);
     }
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(AngularBlogApplication.class).properties("spring.config.name:my-blog").build().run(args);
+        SpringApplication.run(AngularBlogApplication.class, args);
     }
 
 

@@ -1,9 +1,6 @@
 package pl.marczykm.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -21,8 +18,9 @@ public class Post {
     private String title;
 
     @NotNull
-//    @Column(length=5000)
-    private String content;
+//    @Column(length=10000)
+    @Lob
+    private byte[] content;
 
     @NotNull
     private String author;
@@ -38,7 +36,7 @@ public class Post {
         this.creationDate = new Date();
     }
 
-    public Post(String title, String content, String author, boolean active, String photo) {
+    public Post(String title, byte[] content, String author, boolean active, String photo) {
         this.title = title;
         this.content = content;
         this.author = author;
@@ -60,10 +58,10 @@ public class Post {
     }
 
     public String getContent() {
-        return content;
+        return new String(content);
     }
 
-    public void setContent(String content) {
+    public void setContent(byte[] content) {
         this.content = content;
     }
 
