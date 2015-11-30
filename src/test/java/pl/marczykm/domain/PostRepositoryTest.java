@@ -83,6 +83,4 @@ public class PostRepositoryTest {
         Post result = repository.findById(6L);
         Assert.assertEquals(post, result);
     }
-
-
 }
