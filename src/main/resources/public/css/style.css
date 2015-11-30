@@ -35,6 +35,7 @@ a {
 }
 
 .mdl-card__title {
+    position: relative;
     color: #262626;
     font-family: 'Open Sans', sans-serif;
     display: block;
@@ -49,6 +50,7 @@ a {
 .post_title {
     font-size: 30px;
     position: relative;
+    //font-family: 'Open Sans', sans-serif;
 }
 
 .post_date {
@@ -62,6 +64,7 @@ a {
     position: absolute;
     right: 7px;
     bottom: -27px;
+    background: #a400aa !important;
 }
 
 .post_more{
