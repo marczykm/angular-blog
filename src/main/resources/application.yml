@@ -12,6 +12,7 @@ security:
     name: admin
     password: zero
 logging:
+  file: /root/logs/blog.log
   level:
     org:
       springframework: INFO

@@ -40,13 +40,13 @@ public class PostRepositoryTest {
     @Test
     public void findByIdOkAuthorTest() {
         Post result = repository.findById(1L);
-        Assert.assertEquals("Anna Wróblewska", result.getAuthor());
+        Assert.assertEquals("test author 1", result.getAuthor());
     }
 
     @Test
     public void findByIdOkTitleTest() {
         Post result = repository.findById(1L);
-        Assert.assertEquals("\"...niech \u015bwiat m\u00f3j si\u0119 zarumieni!\"", result.getTitle());
+        Assert.assertEquals("test title 1", result.getTitle());
     }
 
     @Test
