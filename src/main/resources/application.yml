@@ -3,31 +3,10 @@ server:
 spring:
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create-drop
   datasource:
-    url: jdbc:hsqldb:file:/root/data/data
+    url: jdbc:h2:mem:.
     username: sa
-security:
-  user:
-    name: admin
-    password: secret-password
-logging:
-  file: /root/log/blog.log
-
----
-spring:
-  profiles: debug
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-  datasource:
-    url: jdbc:hsqldb:file:C:/data/data
-server:
-  port: 8080
 security:
   user:
     name: admin
@@ -36,4 +15,39 @@ logging:
   level:
     org:
       springframework: INFO
+
+---
+spring:
+  profiles: debug
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  datasource:
+    url: jdbc:h2:file:C:\data\data
+logging:
   file: C:\log\blog.log
+server:
+  port: 8080
+
+---
+spring:
+  profiles: production
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:h2:file:/root/data/data
+    username: sa
+security:
+  user:
+    name: admin
+    password: secret-password
+logging:
+  level:
+    org:
+      springframework: INFO
+  file: /root/logs/blog.log
