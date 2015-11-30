@@ -88,7 +88,6 @@ public class AdminPageController {
         post.setContent(postFormWrapper.getContent());
         post.setAuthor("");
         post.setActive(true);
-        post.setPhoto(name);
 
         postService.savePost(post);
         model.addAttribute("messageTitle", "Success");
