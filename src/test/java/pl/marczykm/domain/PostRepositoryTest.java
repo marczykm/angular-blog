@@ -76,5 +76,13 @@ public class PostRepositoryTest {
         Assert.assertEquals(5, result.size());
     }
 
+    @Test
+    public void saveTest() {
+        Post post = new Post("test title", "test content".getBytes(), "test author", true);
+        repository.save(post);
+        Post result = repository.findById(6L);
+        Assert.assertEquals(post, result);
+    }
+
 
 }

@@ -3,6 +3,7 @@ package pl.marczykm.domain;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -83,5 +84,43 @@ public class Post {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Post post = (Post) o;
+
+        if (active != post.active) return false;
+        if (id != null ? !id.equals(post.id) : post.id != null) return false;
+        if (title != null ? !title.equals(post.title) : post.title != null) return false;
+        if (!Arrays.equals(content, post.content)) return false;
+        if (author != null ? !author.equals(post.author) : post.author != null) return false;
+        return !(creationDate != null ? !creationDate.equals(post.creationDate) : post.creationDate != null);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(content);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
+        result = 31 * result + (active ? 1 : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content=" + Arrays.toString(content) +
+                ", author='" + author + '\'' +
+                ", creationDate=" + creationDate +
+                ", active=" + active +
+                '}';
     }
 }
