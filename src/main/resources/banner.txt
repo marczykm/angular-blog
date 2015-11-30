@@ -1,0 +1,7 @@
+ _____             _            _____ _
+|  _  |___ ___ _ _| |___ ___   | __  | |___ ___ 
+|     |   | . | | | | .'|  _|  | __ -| | . | . |
+|__|__|_|_|_  |___|_|__,|_|    |_____|_|___|_  |
+          |___|                            |___|
+${application.version}
+built with Spring Boot ${spring-boot.formatted-version}

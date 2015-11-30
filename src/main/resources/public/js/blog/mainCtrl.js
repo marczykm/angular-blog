@@ -1,7 +1,7 @@
 app.controller('BlogMainCtrl', function($scope, $http, $sce){
     $scope.posts;
 
-    $http.get("/rest/posts").
+    $http.get("rest/posts").
         success(function(data, status, headers, config){
             $scope.posts = data;
 
