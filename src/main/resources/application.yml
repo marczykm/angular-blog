@@ -11,6 +11,9 @@ security:
   user:
     name: admin
     password: secret-password
+logging:
+  file: /root/log/blog.log
+
 ---
 spring:
   profiles: debug
@@ -28,3 +31,8 @@ server:
 security:
   user:
     password: 0000
+logging:
+  level:
+    org:
+      springframework: INFO
+  file: C:\log\blog.log
