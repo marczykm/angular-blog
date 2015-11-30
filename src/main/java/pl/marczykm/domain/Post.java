@@ -18,7 +18,6 @@ public class Post {
     private String title;
 
     @NotNull
-//    @Column(length=10000)
     @Lob
     private byte[] content;
 
@@ -28,20 +27,17 @@ public class Post {
     @NotNull
     private Date creationDate;
 
-    private String photo;
-
     private boolean active;
 
     public Post() {
         this.creationDate = new Date();
     }
 
-    public Post(String title, byte[] content, String author, boolean active, String photo) {
+    public Post(String title, byte[] content, String author, boolean active) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.active = active;
-        this.photo = photo;
         this.creationDate = new Date();
     }
 
@@ -87,13 +83,5 @@ public class Post {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
     }
 }

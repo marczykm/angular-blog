@@ -43,8 +43,7 @@ public class RestfulController {
             post.getTitle(),//
             post.getContent().getBytes(),//
             post.getAuthor() == null ? "" : post.getAuthor(),//
-            post.isActive(),//
-            post.getPhoto()//
+            post.isActive()
         );
         postService.savePost(temp);
     }
