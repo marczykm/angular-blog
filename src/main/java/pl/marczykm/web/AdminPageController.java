@@ -105,6 +105,4 @@ public class AdminPageController {
         String[] splitted = filename.split("\\.");
         return splitted[splitted.length-1];
     }
-
-
 }
