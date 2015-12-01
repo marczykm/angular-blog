@@ -1,6 +1,8 @@
 package pl.marczykm.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import pl.marczykm.domain.Post;
 import pl.marczykm.service.PostService;
@@ -12,10 +14,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/rest")
+@Component
 public class RestfulController {
 
     @Autowired
     private PostService postService;
+
+    @Value("${blog.author}")
+    private String author;
 
     @RequestMapping("/posts")
     public List<Post> getAllPosts(){
@@ -23,6 +29,7 @@ public class RestfulController {
     }
 
     @RequestMapping("/post")
+    @ResponseBody
     public Post getPostBy(@RequestParam Long id){
         return postService.findPostById(id);
     }
@@ -42,7 +49,7 @@ public class RestfulController {
         Post temp = new Post(
             post.getTitle(),//
             post.getContent().getBytes(),//
-            post.getAuthor() == null ? "" : post.getAuthor(),//
+            post.getAuthor() == null ? author : post.getAuthor(),//
             post.isActive()
         );
         postService.savePost(temp);

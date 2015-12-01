@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Blog</title>
+    <title th:text="${blogName}">Blog</title>
 
     <link rel="stylesheet" th:href="@{/webjars/material-design-lite/1.0.0/material.min.css}"/>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.orange-red.min.css" />

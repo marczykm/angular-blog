@@ -4,6 +4,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +28,9 @@ import java.util.List;
 public class AdminPageController {
 
     private Logger logger = Logger.getLogger(this.getClass());
+
+    @Value("${blog.author}")
+    private String author;
 
     private String uploadsPath = "/root/apache-tomcat-8.0.24/angular-blog-0.0.1/ROOT/WEB-INF/classes/public/uploads/";
 //    private String uploadsPath = "C:\\apache-tomcat-8.0.24\\webapps\\ROOT\\WEB-INF\\classes\\public\\uploads\\";
@@ -86,7 +91,7 @@ public class AdminPageController {
         Post post = new Post();
         post.setTitle(postFormWrapper.getTitle());
         post.setContent(postFormWrapper.getContent());
-        post.setAuthor("");
+        post.setAuthor(author);
         post.setActive(true);
 
         postService.savePost(post);

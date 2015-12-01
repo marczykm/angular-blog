@@ -3,6 +3,7 @@ package pl.marczykm.domain;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Arrays;
 import java.util.Date;
 
