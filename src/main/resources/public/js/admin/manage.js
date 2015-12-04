@@ -1,5 +1,5 @@
 $(document).ready(function(){
     $('.delete').click(function(){
-        return confirm('Are you sure');
+        return confirm('Are you sure?');
     });
 });
