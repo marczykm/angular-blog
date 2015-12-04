@@ -955,8 +955,8 @@ nav a:focus {
 	position: absolute;
 	left: 0;
 	width: 0px;
-	height: 1px;
-	background: #a400aa;
+	height: 2px;
+	background: rgb(224,64,251);
 	content: '';
 	opacity: 1;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -983,7 +983,7 @@ nav a:focus {
 
 .cl-effect-21 a:hover,
 .cl-effect-21 a:focus {
-	color: #a400aa;
+	color: rgb(224,64,251);
 }
 
 .cl-effect-21 a:hover::before,
