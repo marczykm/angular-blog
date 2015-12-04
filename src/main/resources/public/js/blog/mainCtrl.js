@@ -7,11 +7,11 @@ app.controller('BlogMainCtrl', function($scope, $http, $sce){
 
             for (i = 0; i < $scope.posts.length; i++){
                 var long = false;
-                $scope.posts[i].content = $scope.posts[i].content.replace(/<[^>]+>/gm, '');
-                if ($scope.posts[i].content.length > 255){
+                $scope.posts[i].content = $scope.posts[i].content.replace(/<[^>]+>/gm, ' ');
+                if ($scope.posts[i].content.length > 500){
                     long = true;
                 }
-                $scope.posts[i].content = $scope.posts[i].content.substring(0, 255);
+                $scope.posts[i].content = $scope.posts[i].content.substring(0, 500);
                 if (long){
                     $scope.posts[i].content = $scope.posts[i].content + "...";
                 }
