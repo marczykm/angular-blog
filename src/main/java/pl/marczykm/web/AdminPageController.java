@@ -41,7 +41,9 @@ public class AdminPageController {
     }
 
     @RequestMapping("/create")
-    public String adminCreatePage(){
+    public String adminCreatePage(Model model){
+//        Post post = new Post();
+//        model.addAttribute("post", post);
         return "create";
     }
 
@@ -50,6 +52,14 @@ public class AdminPageController {
         List<Post> posts = postService.findAllPosts();
         model.addAttribute("posts", posts);
         return "manage";
+    }
+
+    @RequestMapping("/edit")
+    public String  adminEditPostPage(@RequestParam Long id, Model model) {
+        Post post = postService.findPostById(id);
+        model.addAttribute("post", post);
+
+        return "create";
     }
 
     @RequestMapping("/delete")
@@ -67,14 +77,18 @@ public class AdminPageController {
             Model model) {
 
         Post post = new Post();
+        if ( postFormWrapper.getId() != null ) {
+            post = postService.findPostById(postFormWrapper.getId());
+        } else {
+            post.setAuthor(author);
+            post.setActive(true);
+        }
         post.setTitle(postFormWrapper.getTitle());
         post.setContent(postFormWrapper.getContent());
-        post.setAuthor(author);
-        post.setActive(true);
 
         postService.savePost(post);
         model.addAttribute("messageTitle", "Success");
-        model.addAttribute("messageContent", "Post created successfully.");
+        model.addAttribute("messageContent", "Post saved successfully.");
 
         return "savePostStatus";
     }
