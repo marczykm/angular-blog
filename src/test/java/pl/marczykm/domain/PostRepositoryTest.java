@@ -2,6 +2,7 @@ package pl.marczykm.domain;
 
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -23,13 +24,14 @@ import java.util.List;
 @SpringApplicationConfiguration(classes = AngularBlogApplication.class)
 @WebAppConfiguration
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"drop.sql", "create.sql", "insert_posts.sql"})
+@Ignore
 public class PostRepositoryTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
     @Autowired
-    PostRepository repository;
+    private PostRepository repository;
 
     @Test
     public void findByIdOkIdTest() {
