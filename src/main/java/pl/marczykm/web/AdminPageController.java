@@ -32,9 +32,6 @@ public class AdminPageController {
     @Value("${blog.author}")
     private String author;
 
-    private String uploadsPath = "/root/apache-tomcat-8.0.24/angular-blog-0.0.1/ROOT/WEB-INF/classes/public/uploads/";
-//    private String uploadsPath = "C:\\apache-tomcat-8.0.24\\webapps\\ROOT\\WEB-INF\\classes\\public\\uploads\\";
-
     @Autowired
     PostService postService;
 
@@ -67,26 +64,7 @@ public class AdminPageController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String adminSavePostPage(
             @ModelAttribute PostFormWrapper postFormWrapper,
-            @RequestParam("background-image") MultipartFile file,
             Model model) {
-
-        String name = DigestUtils.sha1Hex(new Date().toString()) + "." + extractExtension(file.getOriginalFilename());
-
-        File fileU = new File(uploadsPath + name);
-
-        if (!file.isEmpty()) {
-            try {
-                byte[] bytes = file.getBytes();
-                BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(fileU));
-                stream.write(bytes);
-                stream.close();
-
-                logger.info("Upload successful: " + fileU.getAbsolutePath());
-            } catch (Exception e) {
-                logger.info("Upload failed: " + fileU.getAbsolutePath());
-            }
-        }
 
         Post post = new Post();
         post.setTitle(postFormWrapper.getTitle());
@@ -99,10 +77,5 @@ public class AdminPageController {
         model.addAttribute("messageContent", "Post created successfully.");
 
         return "savePostStatus";
-    }
-
-    private String extractExtension(String filename) {
-        String[] splitted = filename.split("\\.");
-        return splitted[splitted.length-1];
     }
 }
