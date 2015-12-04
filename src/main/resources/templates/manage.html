@@ -10,33 +10,34 @@
     <link rel="stylesheet" th:href="@{/css/admin.css}"/>
 </head>
 <body>
-<nav th:replace="fragments/header :: menu">
+    <nav th:replace="fragments/header :: menu">
 
-</nav>
-<div class="container">
+    </nav>
+    <div class="container">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <td>Title</td>
-                <td>Creation date</td>
-                <td/>
-                <td/>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="post: ${posts}">
-                <td th:text="${post.title}"/>
-                <td th:text="${post.creationDate}"/>
-                <td><a class="btn btn-warning" th:href="@{/admin/edit(id=${post.id})}">Edit</a></td>
-                <td><a class="btn btn-danger" th:href="@{/admin/delete(id=${post.id})}">Delete</a></td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Creation date</td>
+                    <td/>
+                    <td/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="post: ${posts}">
+                    <td th:text="${post.title}"/>
+                    <td th:text="${post.creationDate}"/>
+                    <td><a class="btn btn-warning" th:href="@{/admin/edit(id=${post.id})}">Edit</a></td>
+                    <td><a class="delete btn btn-danger" th:href="@{/admin/delete(id=${post.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
 
 
-</div>
+    </div>
 
-<div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <script th:src="@{/js/admin/manage.js}"></script>
 </body>
 </html>
