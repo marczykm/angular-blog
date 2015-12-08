@@ -21,7 +21,7 @@ public class Post {
 
     @NotNull
     @Column(columnDefinition="text")
-    private byte[] content;
+    private String content;
 
     @NotNull
     private String author;
@@ -35,7 +35,7 @@ public class Post {
         this.creationDate = new Date();
     }
 
-    public Post(String title, byte[] content, String author, boolean active) {
+    public Post(String title, String content, String author, boolean active) {
         this.title = title;
         this.content = content;
         this.author = author;
@@ -63,7 +63,7 @@ public class Post {
         return new String(content);
     }
 
-    public void setContent(byte[] content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
@@ -101,7 +101,7 @@ public class Post {
         if (active != post.active) return false;
         if (id != null ? !id.equals(post.id) : post.id != null) return false;
         if (title != null ? !title.equals(post.title) : post.title != null) return false;
-        if (!Arrays.equals(content, post.content)) return false;
+        if (content != null ? !content.equals(post.content) : post.content != null) return false;
         if (author != null ? !author.equals(post.author) : post.author != null) return false;
         return !(creationDate != null ? !creationDate.equals(post.creationDate) : post.creationDate != null);
     }
@@ -110,7 +110,7 @@ public class Post {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(content);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
         result = 31 * result + (active ? 1 : 0);
@@ -122,7 +122,7 @@ public class Post {
         return "Post{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", content=" + Arrays.toString(content) +
+                ", content=" + content +
                 ", author='" + author + '\'' +
                 ", creationDate=" + creationDate +
                 ", active=" + active +
