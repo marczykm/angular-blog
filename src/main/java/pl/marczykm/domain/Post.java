@@ -20,7 +20,7 @@ public class Post {
     private String title;
 
     @NotNull
-    @Lob
+    @Column(columnDefinition="text")
     private byte[] content;
 
     @NotNull
