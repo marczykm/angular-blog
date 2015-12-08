@@ -112,10 +112,10 @@ a {
 }
 
 .mdl-card__supporting-text {
-    width: 96%;
+    width: 100%;
 }
 
 .content img {
     box-shadow: 0px 2px 10px black;
-    max-width: 770px;
+    max-width: 765px;
 }
