@@ -34,6 +34,16 @@
                     <textarea class="hidden form-control" id="content" name="content" placeholder="Content"></textarea>
                 </div>
 
+                <div>
+                    <div id="drop-area-div" style="width:400px;height:300px;">
+                        Drag and Drop Files Here<br />
+                        or click to add files using the input<br />
+                        <input type="file" name="files[]" multiple="multiple" title="Click to add Files"/>
+                    </div>
+                    <input id="uploadsList" type="text" name="images"/>
+                </div>
+
+
                 <button id="createButton" type="submit" class="btn btn-success" th:text="${post}? 'Update':'Create'">Create/Update</button>
             </form>
         </div>
@@ -45,6 +55,7 @@
 
 <script th:src="@{/js/jquery.hotkeys.js}"></script>
 <script th:src="@{/js/bootstrap-wysiwyg.js}"></script>
+<script th:src="@{/js/dmuploader.min.js}"></script>
 <script th:src="@{/js/admin/create.js}"></script>
 
 </body>

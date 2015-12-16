@@ -14,9 +14,8 @@ import pl.marczykm.domain.Post;
 import pl.marczykm.domain.PostFormWrapper;
 import pl.marczykm.service.PostService;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -45,6 +44,25 @@ public class AdminPageController {
 //        Post post = new Post();
 //        model.addAttribute("post", post);
         return "create";
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    @ResponseBody
+    public String upload(@RequestParam("file") MultipartFile file){
+//        if (!file.isEmpty()){
+            try {
+                byte[] bytes = file.getBytes();
+                SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDDHHmmSS");
+                String name = sdf.format(new Date()).hashCode() + file.getOriginalFilename();
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(name));
+                stream.write(bytes);
+                stream.close();
+                return name;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+//        }
+        return "NOK";
     }
 
     @RequestMapping("/posts")

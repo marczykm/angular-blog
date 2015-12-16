@@ -7,14 +7,16 @@ public class PostFormWrapper {
     private Long id;
     private String title;
     private String content;
+    private String images;
 
     public PostFormWrapper() {
     }
 
-    public PostFormWrapper(Long id, String title, String content){
+    public PostFormWrapper(Long id, String title, String content, String images){
         this.title = title;
         this.content = content;
         this.id = id;
+        this.images = images;
     }
 
     public Long getId() {
@@ -41,4 +43,11 @@ public class PostFormWrapper {
         this.content = content;
     }
 
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
 }
