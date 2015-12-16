@@ -49,7 +49,7 @@ public class AdminPageController {
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public String upload(@RequestParam("file") MultipartFile file){
-//        if (!file.isEmpty()){
+        if (!file.isEmpty()){
             try {
                 byte[] bytes = file.getBytes();
                 SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDDHHmmSS");
@@ -61,7 +61,7 @@ public class AdminPageController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-//        }
+        }
         return "NOK";
     }
 
