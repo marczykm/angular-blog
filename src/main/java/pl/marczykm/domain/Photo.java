@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class Photo {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @NotNull
@@ -46,4 +46,5 @@ public class Photo {
     public void setPost(Post post) {
         this.post = post;
     }
+
 }

@@ -106,45 +106,4 @@ public class Post {
         this.photos = photos;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Post post = (Post) o;
-
-        if (active != post.active) return false;
-        if (id != null ? !id.equals(post.id) : post.id != null) return false;
-        if (title != null ? !title.equals(post.title) : post.title != null) return false;
-        if (content != null ? !content.equals(post.content) : post.content != null) return false;
-        if (photos != null ? !photos.equals(post.photos) : post.photos != null) return false;
-        if (author != null ? !author.equals(post.author) : post.author != null) return false;
-        return !(creationDate != null ? !creationDate.equals(post.creationDate) : post.creationDate != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (photos != null ? photos.hashCode() : 0);
-        result = 31 * result + (author != null ? author.hashCode() : 0);
-        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
-        result = 31 * result + (active ? 1 : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", photos=" + photos +
-                ", author='" + author + '\'' +
-                ", creationDate=" + creationDate +
-                ", active=" + active +
-                '}';
-    }
 }

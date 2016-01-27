@@ -5,11 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import pl.marczykm.domain.Configuration;
+import pl.marczykm.domain.ConfigurationRepository;
+import pl.marczykm.domain.Photo;
 import pl.marczykm.domain.Post;
+import pl.marczykm.service.ConfigurationService;
 import pl.marczykm.service.PostService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,15 +26,21 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/admin")
+@SessionAttributes("post")
 public class AdminPageController {
 
     private Logger logger = Logger.getLogger(this.getClass());
 
-    @Value("${blog.author}")
-    private String author;
+    @Autowired
+    private PostService postService;
 
     @Autowired
-    PostService postService;
+    private ConfigurationService configurationService;
+
+    @InitBinder("post")
+    public void initBinder(WebDataBinder binder) {
+        binder.setDisallowedFields("id");
+    }
 
     @RequestMapping
     public String adminMainPage(){
@@ -69,8 +81,11 @@ public class AdminPageController {
     }
 
     @RequestMapping("/edit")
-    public String  adminEditPostPage(@RequestParam Long id, Model model) {
-        Post post = postService.findPostById(id);
+    public String  adminEditPostPage(@RequestParam Long id, Post post, Model model) {
+        if (post == null)
+            post = postService.findPostById(id);
+        if (post.getId() != id)
+            post = postService.findPostById(id);
         model.addAttribute("post", post);
 
         return "create";
@@ -86,14 +101,28 @@ public class AdminPageController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String adminSavePostPage(@ModelAttribute Post post, Model model) {
+    public String adminSavePostPage(Post post, Model model) {
         if (post.getAuthor() == null){
-            post.setAuthor("Anna");
+            post.setAuthor(configurationService.getAuthor());
         }
         postService.savePost(post);
         model.addAttribute("messageTitle", "Success");
         model.addAttribute("messageContent", "Post saved successfully.");
 
         return "savePostStatus";
+    }
+
+    @RequestMapping(value = "/save", params = {"addPhoto"}, method = RequestMethod.POST)
+    public String addRow(final Post post, HttpServletRequest req){
+//        post = postService.findPostById(post.getId());
+        if (post.getAuthor() == null){
+            post.setAuthor(configurationService.getAuthor());
+        }
+        Photo photo = new Photo();
+        photo.setPost(post);
+        post.getPhotos().add(photo);
+        //postService.savePost(post);
+
+        return "redirect:/admin/edit?id="+post.getId();
     }
 }

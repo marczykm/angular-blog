@@ -7,11 +7,13 @@ $(document).ready(function(){
         $('#content').val($("#editor").html());
     });
 
-    $("#drop-area-div").dmUploader({
+    $(".drop-area-div").dmUploader({
         url: '/admin/upload',
         onUploadSuccess: function(id, data, file){
           if (data != "NOK"){
-            $('#uploadsList').val($('#uploadsList').val() + data + ",");
+            console.log(id);
+//            $('#uploadsList').val($('#uploadsList').val() + data + ",");
+            $.get('/admin/addPhoto/' + data);
           }
         }
     });
