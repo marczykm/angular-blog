@@ -11,9 +11,10 @@ $(document).ready(function(){
         url: '/admin/upload',
         onUploadSuccess: function(id, data, file){
           if (data != "NOK"){
-            console.log(id);
-//            $('#uploadsList').val($('#uploadsList').val() + data + ",");
-            $.get('/admin/addPhoto/' + data);
+            $.get('/admin/addPhoto?photoPath=' + data)
+                .success(function(){
+                    location.reload();
+                });
           }
         }
     });

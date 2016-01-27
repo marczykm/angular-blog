@@ -62,7 +62,7 @@ public class AdminPageController {
                 byte[] bytes = file.getBytes();
                 SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDDHHmmSS");
                 String name = sdf.format(new Date()).hashCode() + file.getOriginalFilename();
-                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(name));
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream("src\\main\\resources\\public\\uploads\\"+name));
                 stream.write(bytes);
                 stream.close();
                 return name;
@@ -110,19 +110,5 @@ public class AdminPageController {
         model.addAttribute("messageContent", "Post saved successfully.");
 
         return "savePostStatus";
-    }
-
-    @RequestMapping(value = "/save", params = {"addPhoto"}, method = RequestMethod.POST)
-    public String addRow(final Post post, HttpServletRequest req){
-//        post = postService.findPostById(post.getId());
-        if (post.getAuthor() == null){
-            post.setAuthor(configurationService.getAuthor());
-        }
-        Photo photo = new Photo();
-        photo.setPost(post);
-        post.getPhotos().add(photo);
-        //postService.savePost(post);
-
-        return "redirect:/admin/edit?id="+post.getId();
     }
 }

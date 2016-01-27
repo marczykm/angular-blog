@@ -38,7 +38,7 @@
 
                     <tr th:each="p, rowStat : *{post.photos}" id="uploadsList">
                         <td>
-                            <input class="path" type="text" th:field="*{post.photos[__${rowStat.index}__].path}"/>
+                            <img class="preview" th:src="'/uploads/'+*{post.photos[__${rowStat.index}__].path}"></img>
                         </td>
                         <br />
                     </tr>
@@ -47,8 +47,6 @@
                         <input type="file" name="file" title="Click to add Files"/>
                     </div>
                 </div>
-
-                <input class="btn btn-success" type="submit" value="Add" name="addPhoto"/>
                 <button id="createButton" type="submit" class="btn btn-success" th:text="${post}? 'Update':'Create'">Create/Update</button>
             </form>
         </div>
