@@ -1,17 +1,13 @@
 package pl.marczykm.web;
 
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.marczykm.domain.Post;
-import pl.marczykm.domain.PostFormWrapper;
 import pl.marczykm.service.PostService;
 
 import java.io.*;
@@ -41,8 +37,8 @@ public class AdminPageController {
 
     @RequestMapping("/create")
     public String adminCreatePage(Model model){
-//        Post post = new Post();
-//        model.addAttribute("post", post);
+        Post post = new Post();
+        model.addAttribute("post", post);
         return "create";
     }
 
@@ -90,20 +86,10 @@ public class AdminPageController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String adminSavePostPage(
-            @ModelAttribute PostFormWrapper postFormWrapper,
-            Model model) {
-
-        Post post = new Post();
-        if ( postFormWrapper.getId() != null ) {
-            post = postService.findPostById(postFormWrapper.getId());
-        } else {
-            post.setAuthor(author);
-            post.setActive(true);
+    public String adminSavePostPage(@ModelAttribute Post post, Model model) {
+        if (post.getAuthor() == null){
+            post.setAuthor("Anna");
         }
-        post.setTitle(postFormWrapper.getTitle());
-        post.setContent(postFormWrapper.getContent());
-
         postService.savePost(post);
         model.addAttribute("messageTitle", "Success");
         model.addAttribute("messageContent", "Post saved successfully.");

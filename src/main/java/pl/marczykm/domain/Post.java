@@ -16,14 +16,13 @@ import java.util.List;
 @Entity
 public class Post {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @NotNull
     private String title;
 
     @NotNull
-    @Column(columnDefinition="text")
     private String content;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
@@ -68,7 +67,7 @@ public class Post {
     }
 
     public String getContent() {
-        return new String(content);
+        return content;
     }
 
     public void setContent(String content) {
