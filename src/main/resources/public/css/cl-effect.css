@@ -984,6 +984,7 @@ nav a:focus {
 .cl-effect-21 a:hover,
 .cl-effect-21 a:focus {
 	color: rgb(224,64,251);
+	text-decoration: none;
 }
 
 .cl-effect-21 a:hover::before,
