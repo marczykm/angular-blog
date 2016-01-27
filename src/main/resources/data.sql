@@ -1,6 +1,6 @@
 INSERT INTO configuration
-(id, author,         creation_date) VALUES
-( 1, 'Anna', '2015-01-01 12:00:00');
+(id, author,    upload_path,         creation_date) VALUES
+( 1, 'Anna', 'C:/uploads/', '2015-01-01 12:00:00');
 
 INSERT INTO post
 (id,          title,           content, author,         creation_date, active) VALUES

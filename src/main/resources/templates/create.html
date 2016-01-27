@@ -38,7 +38,7 @@
 
                     <tr th:each="p, rowStat : *{post.photos}" id="uploadsList">
                         <td>
-                            <img class="preview" th:src="'/uploads/'+*{post.photos[__${rowStat.index}__].path}"></img>
+                            <img class="preview" th:src="'/uploads?name='+*{post.photos[__${rowStat.index}__].path}"/>
                         </td>
                         <br />
                     </tr>

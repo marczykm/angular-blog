@@ -62,7 +62,7 @@ public class AdminPageController {
                 byte[] bytes = file.getBytes();
                 SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDDHHmmSS");
                 String name = sdf.format(new Date()).hashCode() + file.getOriginalFilename();
-                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream("src\\main\\resources\\public\\uploads\\"+name));
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(configurationService.getUploadPath()+name));
                 stream.write(bytes);
                 stream.close();
                 return name;

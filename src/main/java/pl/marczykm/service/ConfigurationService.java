@@ -21,7 +21,7 @@ public class ConfigurationService {
         this.configurationRepository = configurationRepository;
     }
 
-    public String getAuthor() {
+    private Configuration getLatest() {
         if (configuration == null){
             List<Configuration> configurations = configurationRepository.findAllByOrderByCreationDateDesc();
             if (configurations.isEmpty()) {
@@ -29,7 +29,17 @@ public class ConfigurationService {
             }
             configuration = configurations.get(0);
         }
-        return configuration.getAuthor();
+
+        return configuration;
+    }
+
+    public String getAuthor() {
+
+        return getLatest().getAuthor();
+    }
+
+    public String getUploadPath() {
+        return getLatest().getUploadPath();
     }
 
 }

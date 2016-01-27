@@ -21,6 +21,9 @@ public class Configuration {
     private String author;
 
     @NotNull
+    private String uploadPath;
+
+    @NotNull
     private Date creationDate;
 
     public Configuration() {
@@ -40,6 +43,14 @@ public class Configuration {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getUploadPath() {
+        return uploadPath;
+    }
+
+    public void setUploadPath(String uploadPath) {
+        this.uploadPath = uploadPath;
     }
 
     public Date getCreationDate() {
