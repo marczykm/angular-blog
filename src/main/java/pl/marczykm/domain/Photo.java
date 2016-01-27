@@ -1,5 +1,7 @@
 package pl.marczykm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,6 +17,7 @@ public class Photo {
 
     @NotNull
     @ManyToOne
+    @JsonIgnore
     private Post post;
 
     @NotNull

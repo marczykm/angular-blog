@@ -4,14 +4,11 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pl.marczykm.domain.Configuration;
 import pl.marczykm.service.ConfigurationService;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -28,17 +25,8 @@ public class UploadedImagesController {
         this.configurationService = configurationService;
     }
 
-    @RequestMapping()
-    public byte[] getImage(@RequestParam("name") String name) {
-        File file = new File(configurationService.getUploadPath() + name);
-        try {
-            FileInputStream fis = new FileInputStream(file);
-            return IOUtils.toByteArray(fis);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+    @RequestMapping("/{name:.+}")
+    public byte[] getImage(@PathVariable("name") String name) throws IOException {
+        return IOUtils.toByteArray(new FileInputStream(new File(configurationService.getUploadPath() + name)));
     }
 }
