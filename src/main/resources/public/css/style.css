@@ -136,3 +136,7 @@ a {
     max-height: 140px;
     margin: 3px;
 }
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+    margin: 0 auto;
+}
