@@ -23,6 +23,7 @@ public class Post {
     private String title;
 
     @NotNull
+    @Column(length = 3000)
     private String content;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
