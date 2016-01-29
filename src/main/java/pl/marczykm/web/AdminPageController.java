@@ -75,6 +75,15 @@ public class AdminPageController {
         return "manage";
     }
 
+    @RequestMapping("/toggleActive")
+    public String toggleActive(@RequestParam Long id, Model model){
+        Post post = postService.findPostById(id);
+        post.setActive(!post.isActive());
+        postService.savePost(post);
+
+        return "redirect:posts";
+    }
+
     @RequestMapping("/edit")
     public String editPostPage(@RequestParam Long id, Post post, Model model) {
         if (post == null)

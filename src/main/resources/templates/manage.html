@@ -20,6 +20,7 @@
                 <tr>
                     <td>Title</td>
                     <td>Creation date</td>
+                    <td>Active</td>
                     <td/>
                     <td/>
                 </tr>
@@ -28,6 +29,10 @@
                 <tr th:each="post: ${posts}">
                     <td th:text="${post.title}"/>
                     <td th:text="${post.creationDate}"/>
+                    <td>
+                        <input type="checkbox" th:checked="${post.active}" disabled="disabled" />
+                        <a class="btn btn-default" th:href="@{/admin/toggleActive(id=${post.id})}" th:text="${post.active} ? Disactivate : Activate"></a>
+                    </td>
                     <td><a class="btn btn-warning" th:href="@{/admin/edit(id=${post.id})}">Edit</a></td>
                     <td><a class="delete btn btn-danger" th:href="@{/admin/delete(id=${post.id})}">Delete</a></td>
                 </tr>
