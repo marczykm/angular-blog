@@ -164,3 +164,22 @@ footer {
     display: inline-block;
     margin-top: -10px;
 }
+
+.carousel-control.left {
+    background-image: none;
+}
+
+.carousel-control.right {
+    background-image: none;
+}
+
+.slideshow-thumbnails {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slideshow-thumbnail img {
+    max-width: 100px;
+    max-height: 50px;
+}

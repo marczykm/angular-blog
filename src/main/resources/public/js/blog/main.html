@@ -41,6 +41,12 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+
+            </div>
+            <div class="slideshow-thumbnails">
+                <a ng-repeat="photo in p.photos" class="slideshow-thumbnail" data-index="{{$index}}" onclick="changeSlide(this)">
+                    <img ng-src="uploads/{{photo.path}}" alt="" />
+                </a>
             </div>
             <p class="content" ng-bind-html="p.content"></p>
         </div>
