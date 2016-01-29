@@ -27,6 +27,14 @@ a {
 
 }
 
+#header {
+    height: 300px;
+    width: 100%;
+    text-align: center;
+    background: white;
+    margin-bottom: 20px;
+}
+
 .container {
     width: 800px;
     margin: 0 auto;
