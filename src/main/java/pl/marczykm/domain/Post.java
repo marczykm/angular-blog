@@ -41,6 +41,7 @@ public class Post {
     public Post() {
         this.creationDate = new Date();
         this.photos = new ArrayList<>();
+        this.active = false;
     }
 
     public Post(String title, String content, String author, boolean active) {
