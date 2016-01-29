@@ -24,6 +24,9 @@ public class Configuration {
     private String uploadPath;
 
     @NotNull
+    private String title;
+
+    @NotNull
     private Date creationDate;
 
     public Configuration() {
@@ -51,6 +54,14 @@ public class Configuration {
 
     public void setUploadPath(String uploadPath) {
         this.uploadPath = uploadPath;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Date getCreationDate() {

@@ -1,7 +1,6 @@
 package pl.marczykm.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import pl.marczykm.domain.Post;
@@ -20,12 +19,9 @@ public class RestfulController {
     @Autowired
     private PostService postService;
 
-    @Value("${blog.author}")
-    private String author;
-
     @RequestMapping("/posts")
     public List<Post> getAllPosts(){
-        return postService.findAllPosts();
+        return postService.findAllActivePosts();
     }
 
     @RequestMapping("/post")
@@ -49,7 +45,7 @@ public class RestfulController {
         Post temp = new Post(
             post.getTitle(),//
             post.getContent(),//
-            post.getAuthor() == null ? author : post.getAuthor(),//
+            post.getAuthor(),//
             post.isActive()
         );
         postService.savePost(temp);

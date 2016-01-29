@@ -9,7 +9,8 @@ import java.util.List;
  */
 public interface PostRepository extends Repository<Post, Long>{
     Post findById(Long id);
-    List<Post> findAllByOrderByCreationDateDesc();
+    List<Post> findByOrderByCreationDateDesc();
+    List<Post> findByActiveTrueOrderByCreationDateDesc();
     Post save(Post post);
     void delete(Long id);
 }

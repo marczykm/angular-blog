@@ -42,5 +42,9 @@ public class ConfigurationService {
         return getLatest().getUploadPath();
     }
 
+    public String getTitle() {
+        return getLatest().getTitle();
+    }
+
 }
 

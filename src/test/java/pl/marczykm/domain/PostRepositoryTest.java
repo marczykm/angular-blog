@@ -59,14 +59,14 @@ public class PostRepositoryTest {
 
     @Test
     public void findAllTest() {
-        List<Post> result = repository.findAllByOrderByCreationDateDesc();
+        List<Post> result = repository.findByActiveTrueOrderByCreationDateDesc();
         Assert.assertEquals(5, result.size());
     }
 
     @Test
     public void deleteFoundId(){
         repository.delete(1L);
-        List<Post> result = repository.findAllByOrderByCreationDateDesc();
+        List<Post> result = repository.findByActiveTrueOrderByCreationDateDesc();
         Assert.assertEquals(4, result.size());
     }
 
@@ -74,7 +74,7 @@ public class PostRepositoryTest {
     public void deleteNotFoundId() {
         exception.expect(EmptyResultDataAccessException.class);
         repository.delete(6L);
-        List<Post> result = repository.findAllByOrderByCreationDateDesc();
+        List<Post> result = repository.findByActiveTrueOrderByCreationDateDesc();
         Assert.assertEquals(5, result.size());
     }
 

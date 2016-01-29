@@ -6,3 +6,5 @@ angular-blog.iml
 src/main/resources/public/uploads/*.jpg
 !src/main/resources/public/uploads/test1.jpg
 !src/main/resources/public/uploads/test2.jpg
+
+scripts/dump.sql

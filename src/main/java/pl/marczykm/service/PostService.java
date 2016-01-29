@@ -2,7 +2,6 @@ package pl.marczykm.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pl.marczykm.domain.Post;
 import pl.marczykm.domain.PostRepository;
 
@@ -20,8 +19,12 @@ public class PostService {
         return postRepository.findById(id);
     }
 
-    public List<Post> findAllPosts(){
-        return postRepository.findAllByOrderByCreationDateDesc();
+    public List<Post> findAllPosts() {
+        return postRepository.findByOrderByCreationDateDesc();
+    }
+
+    public List<Post> findAllActivePosts(){
+        return postRepository.findByActiveTrueOrderByCreationDateDesc();
     }
 
     public Post savePost(Post post){

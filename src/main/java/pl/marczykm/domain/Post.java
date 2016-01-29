@@ -35,6 +35,7 @@ public class Post {
     @NotNull
     private Date creationDate;
 
+    @NotNull
     private boolean active;
 
     public Post() {
@@ -107,4 +108,15 @@ public class Post {
         this.photos = photos;
     }
 
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", creationDate=" + creationDate +
+                ", active=" + active +
+                '}';
+    }
 }

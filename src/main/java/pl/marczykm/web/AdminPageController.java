@@ -2,20 +2,15 @@ package pl.marczykm.web;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.marczykm.domain.Configuration;
-import pl.marczykm.domain.ConfigurationRepository;
-import pl.marczykm.domain.Photo;
 import pl.marczykm.domain.Post;
 import pl.marczykm.service.ConfigurationService;
 import pl.marczykm.service.PostService;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,12 +38,12 @@ public class AdminPageController {
     }
 
     @RequestMapping
-    public String adminMainPage(){
+    public String mainPage(){
         return "admin";
     }
 
     @RequestMapping("/create")
-    public String adminCreatePage(Model model){
+    public String createPage(Model model){
         Post post = new Post();
         model.addAttribute("post", post);
         return "create";
@@ -74,14 +69,14 @@ public class AdminPageController {
     }
 
     @RequestMapping("/posts")
-    public String adminManagePostsPage(Model model){
+    public String managePostsPage(Model model){
         List<Post> posts = postService.findAllPosts();
         model.addAttribute("posts", posts);
         return "manage";
     }
 
     @RequestMapping("/edit")
-    public String  adminEditPostPage(@RequestParam Long id, Post post, Model model) {
+    public String editPostPage(@RequestParam Long id, Post post, Model model) {
         if (post == null)
             post = postService.findPostById(id);
         if (post.getId() != id)
@@ -92,7 +87,7 @@ public class AdminPageController {
     }
 
     @RequestMapping("/delete")
-    public String adminDeletePostPage(@RequestParam Long id, Model model){
+    public String deletePostPage(@RequestParam Long id, Model model){
         Post post = postService.findPostById(id);
         model.addAttribute("post", post);
         postService.deletePost(id);
@@ -101,7 +96,7 @@ public class AdminPageController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String adminSavePostPage(Post post, Model model) {
+    public String savePostPage(Post post, Model model) {
         if (post.getAuthor() == null){
             post.setAuthor(configurationService.getAuthor());
         }

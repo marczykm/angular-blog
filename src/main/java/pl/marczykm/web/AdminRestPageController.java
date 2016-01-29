@@ -28,7 +28,7 @@ public class AdminRestPageController {
     }
 
     @RequestMapping("/addPhoto")
-    public void addUploadedPhoto(final Post post, @RequestParam("photoPath") String photoPath) {
+    public void addUploadedPhoto(Post post, @RequestParam("photoPath") String photoPath) {
         Photo photo = new Photo();
         photo.setPath(photoPath);
         photo.setPost(post);
