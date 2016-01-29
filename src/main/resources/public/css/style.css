@@ -20,6 +20,7 @@ a {
 #blog-container{
     background: url('../img/background.png') center;
     background-attachment: fixed;
+    position: relative;
 }
 
 #admin-container{
@@ -102,6 +103,12 @@ a {
 
 .admin-background{
     background: #EFEFEF;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 .mdl-mini-footer {

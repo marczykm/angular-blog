@@ -4,10 +4,9 @@
         <div class="mdl-card__title">
             <h1>No posts :(</h1>
         </div>
-        <div class="mdl-card__supporting-text">
+        <div class="mdl-card__supporting-text" style="text-align: center;">
             <h3>There are no posts now. Please come back later.</h3>
         </div>
-
     </div>
 
     <div ng-repeat="p in posts" class="mdl-card mdl-shadow--2dp demo-card-wide">
@@ -22,7 +21,7 @@
         </div>
         <div class="mdl-card__supporting-text">
             <div ng-if="p.photos.length>0" id="carousel-example-generic" class="carousel slide"
-                 data-ride="carousel" data-interval="5000" data-keyboard="false">
+                 data-ride="carousel" data-interval="5000">
                 <!--<ol class="carousel-indicators">-->
                     <!--<li ng-repeat="photo in p.photos" data-target="#carousel-example-generic"
                     data-slide-to="{{$index}}" ng-class="{active: $first}"></li>-->

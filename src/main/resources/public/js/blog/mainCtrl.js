@@ -17,5 +17,8 @@ app.controller('BlogMainCtrl', function($scope, $http, $sce){
                 }
                 $scope.posts[i].content = $sce.trustAsHtml($scope.posts[i].content);
             }
+
+            var height = window.innerHeight;
+            $('#blog-container').css("min-height", height + "px");
         });
 });
