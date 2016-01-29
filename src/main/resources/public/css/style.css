@@ -155,3 +155,12 @@ footer {
 .carousel-inner>.item>a>img, .carousel-inner>.item>img {
     margin: 0 auto;
 }
+
+.carousel-control .glyphicon {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    margin-top: -10px;
+}
